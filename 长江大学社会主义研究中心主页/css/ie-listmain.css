@@ -1,0 +1,25 @@
+/*列表页头部样式*/
+#nav{
+    background-color: #fef2f2;
+    overflow: hidden;
+  }
+/*列表页样式*/
+.paging span{
+    display:inline-block;
+    *zoom:1;
+    *display: inline;
+    width: 70px;
+    border: 1px solid  #464646;
+  }
+  .paging ul{
+    margin: 0;
+    padding: 0;
+    height: 21px;
+    display:inline-block;
+    *zoom:1;
+    *display: inline;
+  }
+.paging ul li{
+    background-image: url(../images/ieimg.png);
+     border: none;
+  }

@@ -1,0 +1,28 @@
+@import url(../css/list.css);
+.article-box .title{
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+}
+.article-box .title h2{
+    font-size: 30px;
+    font-weight: 500;
+}
+.article-box .inform{
+    background-color: #f4ebed;
+}
+.article-box .inform ul{
+    padding: 0;
+    width: 430px;
+}
+.article-box .inform li{
+    float: left;
+    margin-left: 30px;
+}
+.article-box .article{
+    width:1000px;
+    line-height:2; 
+}
+.article-box .article p{
+    text-indent: 30px;
+}
