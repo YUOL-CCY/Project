@@ -1,0 +1,48 @@
+ /* =============
+    引入list样式
+    ===========*/
+ @import url(list.css);
+
+
+
+/* =============
+  artical底部样式
+   =============*/
+
+
+ header .header-pic{
+     background-image: url(../images/artical-top-pic.png);
+ }
+ #content .content-bgO{
+     background-image: url(../images/artical-bg1.png);
+ }
+ #content .content-bgT{
+     background-image: url(../images/artical-bg2.png);
+ }
+ #content .content-bgTh{
+     background-image: url(../images/artical-bg3.png);
+ }
+ section{
+    width: 640px;
+} 
+section h2{
+    text-align: center;
+}
+section p{
+    line-height: 3;
+    text-indent: 35px;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/list-footer-bg.png);
+    width: 100%;
+    height: 335px;
+}
+footer .footer-box {
+    text-align: center;
+}
+footer .footer-box p{
+   padding-bottom: 50px;
+} 
