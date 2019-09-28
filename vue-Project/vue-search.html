@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/vue-resource.min.js"></script>
+    <title>vue-search</title>
+    <style>
+        .container {
+            width: 400px;
+        }
+
+        .nav>li>a {
+            padding: 10px 5px;
+        }
+
+        .aColor {
+            background-color: rgb(187, 53, 53);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-group">
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Search" v-model="msg"
+                @keyup="get($event)" @keydown.down="chgDownIndex()" @keydown.up="chgUpIndex()">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" @click="search()">搜索</button>
+            </span>
+        </div>
+        <ul class="nav justify-content-center">
+            <li class="nav-item" v-for="(item,index) in Data" @click="getVal($event)">
+                <a class="nav-link active" href="#" :class="{aColor:index==nowIndex}">{{item}}</a>
+            </li>
+        </ul>
+        <p :style="styleObj" v-show="Data.length==0">暂无数据...</p>
+
+    </div>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: '.container',
+                data: {
+                    styleObj: {
+                        'color': '#337ab0',
+                        'background-color': '#eee',
+                        'margin-top': '5px',
+                    },
+                    Data: [],
+                    msg: '',
+                    nowIndex: -1,
+                },
+                methods: {
+                    get: function (ev) {
+                        if (ev.keyCode == 38 || ev.keyCode == 40) return;
+                        if (ev.keyCode == 13) {
+                            window.open(`https://www.baidu.com/s?wd=${this.msg}`, '-self')
+                        }
+                        this.$http.jsonp(`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${this.msg}&pwd=${this.msg}&bs=${this.msg}`, {
+                            jsonp: 'cb',
+                        }).then(function (res) {
+                            this.Data = res.data.s;
+                        }, function (res) {
+                            console.log(res.status)
+                        })
+                    },
+                    chgDownIndex: function () {
+                        this.nowIndex >= this.Data.length - 1 ? this.nowIndex = 0 : this.nowIndex++;
+                        this.msg = this.Data[this.nowIndex];
+                    },
+                    chgUpIndex: function () {
+                        this.nowIndex <= 0 ? this.nowIndex = this.Data.length - 1 : this.nowIndex--;
+                        this.msg = this.Data[this.nowIndex];
+                    },
+                    search: function () {
+                        window.open(`https://www.baidu.com/s?wd=${this.msg}`, '-self')
+                    },
+                    getVal: function (ev) {
+                        this.msg = ev.srcElement.innerHTML;
+                        this.search();
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
