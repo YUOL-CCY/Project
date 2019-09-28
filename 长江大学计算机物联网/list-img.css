@@ -1,0 +1,19 @@
+.container .news-list li {
+    margin-top: 36px;
+    margin-right: 40px;
+    position: relative;
+    height: auto;
+    float: left;
+}
+
+.container>div {
+    width: 1300px;
+    margin: auto;
+}
+.container .news-list li>span{
+    position: absolute;
+    height:36px;
+    bottom: 0;
+    left:50%;
+    transform: translateY(100%);
+}
