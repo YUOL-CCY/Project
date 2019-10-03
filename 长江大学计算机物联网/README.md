@@ -1,4 +1,4 @@
-# 长江大学临床医学认证专题网
+# 长江大学计算机物联网
 基于HTML&CSS&JavaScript的基础上写出来的页面，用到了`JQuery`&`BootStrap`的第三方框架(库)
 
 ## 导航栏二级下滑菜单
@@ -74,5 +74,3 @@ $(function() {
         //1文字轮播(2-5页中间)结束
 })
 ```
-## 版权 
-Copyright © 2017 YUOL-周南杰, All Rights Reserved
